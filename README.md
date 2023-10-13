@@ -46,7 +46,7 @@ $ nest new MyApp
 
 ```bash
 # development
-$ npm run start
+$ npm run start 
 
 # watch mode
 $ npm run start:dev
