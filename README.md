@@ -31,15 +31,6 @@
 ```bash
 $ npm i -g @nestjs/cli
 $ nest new MyApp
-$ nest new MyApp
-$ nest new MyApp
-$ nest new MyApp
-$ nest new MyApp
-$ nest new MyApp
-$ nest new MyApp
-$ nest new MyApp
-$ nest new MyApp
-$ nest new MyApp
 ```
 
 ## Running the app
