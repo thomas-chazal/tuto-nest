@@ -31,10 +31,10 @@ export class AppController {
     return req.body;
   }
 
-  @Get('/:userId')
+  /* @Get('/:userId')
   getUserId(@Param() params: { userId: number }) {
     return params;
-  }
+  } */
 
   @Delete('/:userId')
   DeleteUserId(@Param() params: { userId: number }) {
