@@ -38,6 +38,26 @@ $ nest new MyApp
 $ npm i -g @nestjs/cli
 
 
+## Connect to SQL
+```bash
+$ npm sudo apt-get install mysql-server
+$ sudo apt-get install mysql-server    
+$ sudo dnf install mysql-server   
+$ sudo systemctl start mysqld      
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ xcode-select -p                                                                                    
+$ sudo systemctl start mysqld      
+$ brew install mysql  
+$ brew services startmysql  
+$ mysql -u root (lance sql)
+
+## Passeport Authentification
+$ npm install --save-dev @types/passport-local  
+                                                                                                                                                                                                                             
+## JWT Functionnality
+$ npm install --save @nestjs/jwt passport-jwt
+$ npm install --save-dev @types/passport-jwt
+
 
 # watch mode
 $ npm run start:dev
