@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entity/user.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   // C'est ici que nous devons donner les informations sur les controllers et les services
@@ -19,6 +20,7 @@ import { User } from './user/entity/user.entity';
       entities: [User],
       synchronize: true,
     }),
+    AuthModule,
   ], // On importe les modules des différentes dossiers
 })
 export class AppModule {}
