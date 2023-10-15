@@ -2,34 +2,38 @@ import {
   Controller,
   Get,
   Post,
-  Req,
+  // Req,
   Param,
   Delete,
   Patch,
+  Body, // Importez le décorateur Body depuis '@nestjs/common'
 } from '@nestjs/common';
-import { Request } from 'express';
+// import { Request } from 'express';
 import { UserService } from './user.service';
+import { UpdateUserDto } from './dto/user-update.dto';
+import { CreateUserDto } from './dto/user.create.dto';
 
-@Controller('/user')
+@Controller('user')
 export class UserController {
-  // A l'intérieur ce ce controller, nous devons créer une function
   constructor(private userService: UserService) {}
 
-  @Get() // On définit le type de requête HTTP et on y affecte une route que l'on veut
+  @Get()
   getUser() {
     return this.userService.get();
   }
 
   @Post()
-  store(@Req() req: Request) {
-    // store(@Req() req: Request) est une méthode avec un paramètre req qui est typé comme un objet Request d'Express. @Req() est un décorateur qui indique que req doit être injecté avec l'objet de requête actuel d'Express.
-    return this.userService.create(req);
+  store(@Body() createUserDto: CreateUserDto) {
+    // Utilisez le décorateur Body ici pour récupérer le corps de la requête
+    return this.userService.create(createUserDto);
   }
 
   @Patch('/:userId')
-  update(@Req() req: Request, @Param() param: { userId: number }) {
-    // store(@Req() req: Request) est une méthode avec un paramètre req qui est typé comme un objet Request d'Express. @Req() est un décorateur qui indique que req doit être injecté avec l'objet de requête actuel d'Express.
-    return this.userService.update(req, param);
+  update(
+    @Body() updateUserDto: UpdateUserDto,
+    @Param() param: { userId: number },
+  ) {
+    return this.userService.update(updateUserDto, param);
   }
 
   @Get('/:userId')
