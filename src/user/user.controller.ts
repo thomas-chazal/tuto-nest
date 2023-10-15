@@ -6,7 +6,8 @@ import {
   Param,
   Delete,
   Patch,
-  Body, // Importez le décorateur Body depuis '@nestjs/common'
+  Body,
+  ParseIntPipe, // Importez le décorateur Body depuis '@nestjs/common'
 } from '@nestjs/common';
 // import { Request } from 'express';
 import { UserService } from './user.service';
@@ -31,18 +32,18 @@ export class UserController {
   @Patch('/:userId')
   update(
     @Body() updateUserDto: UpdateUserDto,
-    @Param() param: { userId: number },
+    @Param('userId', ParseIntPipe) userId: number,
   ) {
-    return this.userService.update(updateUserDto, param);
+    return this.userService.update(updateUserDto, userId);
   }
 
   @Get('/:userId')
-  getUserId(@Param() param: { userId: number }) {
-    return this.userService.show(param);
+  getUserId(@Param('userId', ParseIntPipe) userId: number) {
+    return this.userService.show(userId);
   }
 
   @Delete('/:userId')
-  DeleteUserId(@Param() param: { userId: number }) {
-    return this.userService.delete(param);
+  DeleteUserId(@Param('userId', ParseIntPipe) userId: number) {
+    return this.userService.delete(userId);
   }
 }
