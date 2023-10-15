@@ -33,11 +33,11 @@ $ npm i -g @nestjs/cli
 $ nest new MyApp
 ```
 
-## Running the app
-
+## Nest CLI
 ```bash
-# development
-$ npm run start 
+$ npm i -g @nestjs/cli
+
+
 
 # watch mode
 $ npm run start:dev
